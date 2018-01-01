@@ -2,13 +2,13 @@
 FROM fedora:27
 ARG INTERFACE=eth0
 
-RUN dnf update -y
-RUN dnf install -y procps-ng hostname
-RUN dnf install -y net-tools
 COPY snort.rpm /
-RUN dnf install -y snort.rpm
-RUN rm -f /snort.rpm && dnf clean all
-RUN mkdir /usr/local/lib/snort_dynamicrules
+RUN dnf update -y && \
+  dnf install -y procps-ng hostname && \
+  dnf install -y net-tools && \
+  dnf install -y snort.rpm && \
+  rm -f /snort.rpm && dnf clean all && \
+  mkdir /usr/local/lib/snort_dynamicrules
 
 WORKDIR /etc/snort/rules
 RUN touch local.rules app-detect.rules attack-responses.rules \

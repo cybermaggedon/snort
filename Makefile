@@ -1,5 +1,5 @@
 
-REPOSITORY=cybermaggedon/snort
+REPOSITORY=docker.io/cybermaggedon/snort
 VERSION=$(shell git describe | sed 's/^v//')
 SNORT_VERSION=2.9.11
 
@@ -15,3 +15,4 @@ snort.rpm:
 
 push:
 	${SUDO} docker push ${REPOSITORY}:${VERSION}
+	${SUDO} docker push ${REPOSITORY}:latest
