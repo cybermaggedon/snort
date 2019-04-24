@@ -1,5 +1,5 @@
 
-FROM fedora:27
+FROM fedora:29
 ARG INTERFACE=eth0
 
 COPY snort.rpm /

@@ -1,7 +1,7 @@
 
 REPOSITORY=docker.io/cybermaggedon/snort
 VERSION=$(shell git describe | sed 's/^v//')
-SNORT_VERSION=2.9.11
+SNORT_VERSION=2.9.12
 
 SUDO=
 BUILD_ARGS=
@@ -11,7 +11,7 @@ all: snort.rpm
 	${SUDO} docker tag ${REPOSITORY}:${VERSION} ${REPOSITORY}:latest
 
 snort.rpm:
-	wget -q -O snort.rpm https://forensics.cert.org/fedora/cert/27/x86_64/snort-${SNORT_VERSION}-1.fc27.x86_64.rpm
+	wget -q -O snort.rpm https://forensics.cert.org/fedora/cert/29/x86_64/snort-${SNORT_VERSION}-1.fc29.x86_64.rpm
 
 push:
 	${SUDO} docker push ${REPOSITORY}:${VERSION}
